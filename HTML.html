@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Ứng dụng công nghệ số</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f2f4f7;
+            margin: 0;
+            padding: 30px 15px;
+            text-align: center;
+        }
+
+        /* KHUNG CHÍNH */
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+        }
+
+        /* TIÊU ĐỀ */
+        h1 {
+            color: #1976d2;
+            margin-bottom: 25px;
+        }
+
+        /* ===================== */
+        /* INFOGRAPHIC */
+        /* ===================== */
+
+        .infographic {
+            width: 100%;
+            max-width: 650px;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+            border-radius: 12px;
+
+            box-shadow: 0 5px 15px rgba(0,0,0,0.12);
+        }
+
+        /* ===================== */
+        /* KHUNG VIDEO */
+        /* ===================== */
+
+        .video-box {
+            position: relative;
+
+            width: 100%;
+            max-width: 650px;
+
+            margin: 40px auto 0;
+
+            background: #000;
+
+            border-radius: 12px;
+
+            overflow: hidden;
+
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        /* VIDEO */
+
+        video {
+            width: 100%;
+            height: auto;
+
+            display: block;
+
+            border-radius: 12px;
+        }
+
+        /* ===================== */
+        /* NÚT PLAY */
+        /* ===================== */
+
+        .video-play-button {
+            position: absolute;
+
+            top: 50%;
+            left: 50%;
+
+            transform: translate(-50%, -50%);
+
+            width: 80px;
+            height: 80px;
+
+            border: none;
+
+            border-radius: 50%;
+
+            background: rgba(25, 118, 210, 0.9);
+
+            color: white;
+
+            font-size: 36px;
+
+            cursor: pointer;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            z-index: 10;
+
+            transition: 0.2s;
+
+            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+        }
+
+        .video-play-button:hover {
+            background: #0d47a1;
+
+            transform:
+                translate(-50%, -50%)
+                scale(1.1);
+        }
+
+        /* ẨN NÚT KHI VIDEO ĐANG CHẠY */
+
+        .video-play-button.hidden {
+            display: none;
+        }
+
+        /* ===================== */
+        /* GHI CHÚ */
+        /* ===================== */
+
+        .note {
+            margin-top: 15px;
+
+            color: #666;
+
+            font-size: 14px;
+        }
+
+        /* ===================== */
+        /* BẢN QUYỀN */
+        /* ===================== */
+
+        .copyright {
+            margin-top: 30px;
+
+            padding-top: 18px;
+
+            border-top: 1px solid #ddd;
+
+            color: #777;
+
+            font-size: 13px;
+
+            line-height: 1.7;
+
+            text-align: center;
+        }
+
+        .copyright strong {
+            color: #1976d2;
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+<div class="container">
+
+    <!-- ===================== -->
+    <!-- TIÊU ĐỀ -->
+    <!-- ===================== -->
+
+    <h1>
+        ỨNG DỤNG CÔNG NGHỆ SỐ
+    </h1>
+
+
+    <!-- ===================== -->
+    <!-- INFOGRAPHIC -->
+    <!-- ===================== -->
+
+    <img
+        class="infographic"
+        src="nhiệm vụ 2.1.jpg"
+        alt="Infographic về ứng dụng công nghệ số"
+    >
+
+
+    <!-- ===================== -->
+    <!-- VIDEO -->
+    <!-- ===================== -->
+
+    <div class="video-box">
+
+        <video
+            id="video"
+            controls
+            playsinline>
+
+            <source
+                src="nhiệm vụ 2.2.mp4"
+                type="video/mp4">
+
+            Trình duyệt của bạn không hỗ trợ video MP4.
+
+        </video>
+
+
+        <!-- NÚT PLAY -->
+
+        <button
+            id="videoPlayButton"
+            class="video-play-button"
+            onclick="playVideo()">
+
+            ▶
+
+        </button>
+
+    </div>
+
+
+    <!-- ===================== -->
+    <!-- GHI CHÚ -->
+    <!-- ===================== -->
+
+    <div class="note">
+        ▶ Bấm nút Play trên video để phát
+    </div>
+
+
+    <!-- ===================== -->
+    <!-- BẢN QUYỀN -->
+    <!-- ===================== -->
+
+    <div class="copyright">
+
+        <strong>© 2026 Ứng dụng Công nghệ số</strong>
+        <br>
+   	
+	<strong>Nguồn hỗ trợ AI:</strong> Nội dung và mã HTML được hỗ trợ bởi AI (ChatGPT).
+    	
+    	<br>
+
+        Hình ảnh và video được sử dụng cho mục đích học tập.
+    <br>
+
+    </div>
+
+</div>
+
+
+<script>
+
+    /* ===================== */
+    /* ĐIỀU KHIỂN VIDEO */
+    /* ===================== */
+
+    const video =
+        document.getElementById("video");
+
+    const playButton =
+        document.getElementById("videoPlayButton");
+
+
+    /* BẤM NÚT PLAY */
+
+    function playVideo() {
+
+        video.play();
+
+        playButton.classList.add("hidden");
+
+    }
+
+
+    /* VIDEO BẮT ĐẦU CHẠY */
+
+    video.addEventListener("play", function () {
+
+        playButton.classList.add("hidden");
+
+    });
+
+
+    /* VIDEO TẠM DỪNG */
+
+    video.addEventListener("pause", function () {
+
+        if (!video.ended) {
+
+            playButton.classList.remove("hidden");
+
+        }
+
+    });
+
+
+    /* VIDEO KẾT THÚC */
+
+    video.addEventListener("ended", function () {
+
+        playButton.classList.remove("hidden");
+
+    });
+
+</script>
+
+
+</body>
+</html>
